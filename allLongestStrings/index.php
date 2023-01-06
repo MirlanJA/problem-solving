@@ -9,17 +9,11 @@ solution(inputArray) = ["aba", "vcd", "aba"].
 */
 function solution($inputArray)
 {
-    $result = [];
-    $lengthArray = array_map('strlen', $inputArray);
-    $max = max($lengthArray);
-    
-    for ($i = 0; $i < count($inputArray); $i++) {
-        if (strlen($inputArray[$i]) < $max) {
-            continue;
+   $max = max(array_map('strlen', $inputArray));
+
+    return array_values(array_filter($inputArray,
+        function($n) use($max) {
+            return strlen($n) === $max;
         }
-        
-        $result[] = $inputArray[$i];
-    }
-    
-    return $result;
+    ));
 }
