@@ -11,9 +11,9 @@ function solution($inputArray)
 {
    $max = max(array_map('strlen', $inputArray));
 
-    return array_values(array_filter($inputArray,
-        function($n) use($max) {
-            return strlen($n) === $max;
-        }
-    ));
+   return array_values(array_filter($inputArray,
+     function($n) use($max) {
+         return strlen($n) === $max;
+     }
+   ));
 }
