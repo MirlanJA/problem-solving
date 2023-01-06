@@ -11,15 +11,14 @@ solution(inputArray) = 21.
 */
 function solution($arr)
 {
-    $max = $arr[0] * $arr[1];
-
-    for($i = 1; $i < count($arr); $i++) {
-        if (!isset($arr[$i + 1]))
-            break;
-        
-        $next = $arr[$i] * $arr[$i + 1];
-        $max = max([$next, $max]);
+    $start = $end = 1;
+    $max = $inputArray[0] * $inputArray[1];
+    
+    while ($end < count($inputArray) - 1) {
+        $max = max([$max, $inputArray[$end] * $inputArray[$start + 1]]);
+        $start++;
+        $end++;
     }
-
+    
     return $max;
 }
