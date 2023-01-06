@@ -13,8 +13,5 @@ solution(inputString) = true.
 */
 function solution($str)
 {
-    $str = strtolower($str);
-    $reverse = array_reverse(str_split($str));
-
-    return $str == implode($reverse);
+    return strrev($inputString) === $inputString;
 }
